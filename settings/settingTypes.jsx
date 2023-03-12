@@ -182,7 +182,7 @@ export class Range extends SettingType {
     return (
       <InputUI
         size='sm'
-        type='number'
+        type='tel'
         value={value.raw}
         slotProps={{
           input: {
@@ -192,7 +192,7 @@ export class Range extends SettingType {
           }
         }}
         endDecorator={this.format?.replaceAll('{@}', '')}
-        onChange={e => this.onChange(Number(e.target.value))}/>
+        onChange={e => !isNaN(e.target.value) ? this.onChange(Number(e.target.value)) : {}}/>
     )
   }
 }
