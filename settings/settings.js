@@ -1,9 +1,8 @@
 import * as types from './settingTypes'
-import config from '../public/config'
 
 const searchEngines = {}
-for (const key in config.engines)
-  searchEngines[key] = config.engines[key].name
+for (const key in window.CONFIG.engines)
+  searchEngines[key] = window.CONFIG.engines[key].name
 
 const template = {
   general: {
@@ -50,11 +49,6 @@ const template = {
       {format: '{@}%' }
     ),
     quickLook: {
-      fontSize: new types.Range(
-        2.5,
-        { min: 0.1, max: 10, step: 0.1 }, 
-        { format: '{@}em' }
-      ),
       marquee: new types.Switch(true),
       showMacrosLabel: new types.Switch(false),
       // hidden
